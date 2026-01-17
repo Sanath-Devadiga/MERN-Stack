@@ -341,23 +341,3 @@ App.jsx
    ↓
 Components
  
-ES6 features
-Arrow function 
-variables-- let and const
-destructuring -extract from object
-
-
- 
-16/01/2026
-
-spread operator ...
-for and while loop in react (map concept)
-
-difference between public folder and assets folder
-
-flower bracket is used to print javascript value in react components.
-
-props:
-relationship between child and parent components
-props are case sensitive and it is a javascriptvalue
-difference between props and parameters
