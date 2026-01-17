@@ -1,0 +1,319 @@
+
+ 
+1. What is ES6?
+
+ES6 (ECMAScript 2015) is a major update of JavaScript
+
+It introduced modern syntax and new features
+
+Makes code shorter, cleaner, and more readable
+
+Widely used in React and modern web development
+
+2. Arrow Function (=>)
+Definition
+
+Arrow functions provide a shorter syntax for writing functions.
+
+Normal Function
+function add(a, b) {
+  return a + b;
+}
+
+Arrow Function
+const add = (a, b) => {
+  return a + b;
+};
+
+Single Line Arrow Function
+const add = (a, b) => a + b;
+
+Arrow Function in React
+const Button = () => {
+  return <button>Click</button>;
+};
+
+Advantages
+
+Short syntax
+
+No function keyword
+
+Cleaner code
+
+Commonly used in React components
+
+3. Variables in ES6 – let and const
+var (Old Way)
+
+Function scoped
+
+Can be re-declared
+
+Causes bugs
+
+let
+
+Block scoped
+
+Value can be changed
+
+Cannot be re-declared in same scope
+
+let count = 10;
+count = 20; // allowed
+
+const
+
+Block scoped
+
+Value cannot be reassigned
+
+Must be initialized
+
+const name = "SD";
+// name = "Dev"; ❌ not allowed
+
+Important Note
+const user = { name: "SD" };
+user.name = "Dev"; // allowed
+
+
+(Only reassignment is blocked, not modification)
+
+Difference Table
+var	                  let         	const
+Function scoped	 Block scoped	     Block scoped
+Re-declarable	  Not re-declarable	 Not re-declarable
+Re-assignable	   Re-assignable	   Not re-assignable
+Avoid using	    Use when value changes	Use by default
+4. Destructuring (Extract from Object)
+Definition
+
+Destructuring allows us to extract values from objects or arrays into variables.
+
+Without Destructuring
+const user = {
+  name: "SD",
+  age: 20
+};
+
+const name = user.name;
+const age = user.age;
+
+With Object Destructuring
+const user = {
+  name: "SD",
+  age: 20
+};
+
+const { name, age } = user;
+
+console.log(name); // SD
+console.log(age);  // 20
+
+Destructuring in React Props
+function Student({ name, age }) {
+  return <h2>{name} - {age}</h2>;
+}
+
+Renaming Variables
+const { name: userName } = user;
+
+Default Values
+const { city = "Udupi" } = user;
+
+5. Why ES6 is Important in React
+
+Arrow functions are used for components
+
+let and const manage state safely
+
+Destructuring simplifies props and state
+
+Makes code readable and maintainable
+ 
+16/01/2026
+
+1. Spread Operator (...)
+Definition
+
+The spread operator (...) is used to copy, merge, or expand elements of arrays, objects, or props.
+
+Spread Operator with Array
+const a = [1, 2, 3];
+const b = [...a, 4, 5];
+
+console.log(b); // [1, 2, 3, 4, 5]
+
+Spread Operator with Object
+const user = { name: "SD", age: 20 };
+const details = { ...user, city: "Udupi" };
+
+console.log(details);
+
+Spread Operator in React Props
+const data = { name: "SD", role: "Student" };
+
+<Component {...data} />
+
+Why Spread Operator is Important
+
+Avoids mutation
+
+Makes code clean
+
+Used heavily in React state and props
+
+2. for & while Loop vs map() in React
+Why NOT use for/while directly in JSX?
+
+JSX expects expressions, not statements
+
+for and while are statements
+
+Correct Way: map() in React
+const names = ["SD", "Rahul", "Anu"];
+
+function App() {
+  return (
+    <>
+      {names.map((name, index) => (
+        <h2 key={index}>{name}</h2>
+      ))}
+    </>
+  );
+}
+
+Difference Table
+for / while	map()
+Statement	Expression
+Cannot return JSX	Returns JSX
+Not JSX-friendly	React friendly
+Manual logic	Cleaner code
+3. Public Folder vs Assets Folder
+Public Folder
+
+Contains static files
+
+Files are accessed directly
+
+No processing by React
+
+<img src="/logo.png" />
+
+Assets Folder
+
+Used for images, icons, styles
+
+Imported inside components
+
+Processed by React/Vite
+
+import logo from "../assets/logo.png";
+
+<img src={logo} />
+
+Difference Table
+Public Folder	Assets Folder
+Direct access	Import required
+Not bundled	Bundled
+No optimization	Optimized
+Used for static files	Used for project files
+4. Flower Brackets {} in React
+Purpose
+
+Curly braces {} are used to print JavaScript values inside JSX.
+
+Example
+const name = "SD";
+
+function App() {
+  return <h1>Hello {name}</h1>;
+}
+
+What Can Be Inside {}
+
+Variables
+
+Expressions
+
+Function calls
+
+{10 + 20}
+{user.name}
+{getName()}
+
+5. Props in React
+Definition
+
+Props (properties) are used to pass data from parent to child component.
+
+6. Relationship Between Parent and Child Components
+Parent Component
+function App() {
+  return <Student name="SD" age={20} />;
+}
+
+Child Component
+function Student(props) {
+  return (
+    <h2>
+      {props.name} - {props.age}
+    </h2>
+  );
+}
+
+Flow
+Parent → Child (Data flows one way)
+
+7. Props Are Case-Sensitive
+<Student userName="SD" />
+
+props.userName   // correct
+props.username   // undefined
+
+8. Props Are JavaScript Values
+
+Props can be:
+
+String
+
+Number
+
+Boolean
+
+Array
+
+Object
+
+Function
+
+<Student
+  name="SD"
+  age={20}
+  isActive={true}
+  skills={["React", "JS"]}
+  details={{ city: "Udupi" }}
+/>
+
+9. Difference Between Props and Parameters
+Props	Parameters
+Used in React components	Used in normal JS functions
+Passed between components	Passed to functions
+Read-only	Can be modified
+Used for UI data	Used for logic
+Example of Parameter
+function add(a, b) {
+  return a + b;
+}
+
+Example of Props
+function Student(props) {
+  return <h1>{props.name}</h1>;
+}
+
+10. Props Destructuring (Best Practice)
+function Student({ name, age }) {
+  return <h2>{name} - {age}</h2>;
+}
