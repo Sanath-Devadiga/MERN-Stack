@@ -1,0 +1,13 @@
+*{
+    background-color: rgb(188, 156, 156);
+}
+p{
+    font-size: 12px;
+}
+#h2{
+    color: blue;
+}
+.heading{
+    background-color:aqua;
+    color: green;
+}

@@ -1,0 +1,363 @@
+
+10/01/2026
+
+1. React as a Single Page Application (SPA)
+
+React is mainly used to build Single Page Applications (SPA).
+
+In an SPA:
+The browser loads only one HTML page (index.html).
+Page content changes without reloading the whole page.
+This gives faster performance and a smooth user experience.
+React updates only the required parts of the page instead of loading new pages every time.
+
+2. Virtual DOM in React
+
+React uses a Virtual DOM, which is a lightweight copy of the real DOM.
+When we modify a component, React:
+Updates the Virtual DOM
+Compares it with the previous version (Diffing)
+Updates only the changed parts in the real DOM
+
+Advantages
+Faster updates
+Better performance
+Efficient rendering
+
+3. Components in React
+
+React applications are made of components
+Each file we create in React is a component
+Components are reusable, independent, and easy to maintain
+
+Example:
+
+Header component
+Footer component
+Home component
+
+4. Page Navigation: JavaScript vs React
+
+Page Navigation in JavaScript
+Uses window.location or links
+Full page reload happens
+Slower performance
+Page Navigation in React
+Uses React Router
+No page reload
+Only components change
+Faster and smoother navigation
+
+5. Creating a React Project using Vite
+
+Command
+npm create vite@latest project_name
+
+Explanation
+npm → Node Package Manager (used to run commands)
+create → Keyword to create a project
+vite → Build tool for fast development
+@latest → Optional, installs latest version
+project_name → Name of the project
+
+6. Running a React Project
+Command
+npm run dev
+run → Keyword
+dev → Development server in Vite
+
+7. React Folder Structure
+
+Important Files and Folders
+
+node_modules
+Contains pre-built libraries and packages
+
+public
+Used for static files like images and icons
+
+index.html
+Core file
+React app runs inside this file
+Modified only for SEO optimization
+
+package.json
+Meta information of the project
+Project name, scripts, dependencies
+
+package-lock.json
+Exact dependency versions
+
+vite.config.js
+Vite configuration file
+
+eslint.config.js
+Code quality and linting rules
+
+.gitignore
+Files ignored by Git
+
+8. JSX (JavaScript XML)
+JSX allows writing HTML-like code inside JavaScript
+Makes UI code easier to understand
+File extension: .jsx
+
+Example:
+
+<h1>Hello React</h1>
+
+9. File Connection Flow in React
+index.html → main.jsx → App.jsx → Components
+Explanation
+index.html connects to main.jsx
+main.jsx renders App.jsx
+App.jsx acts as the entry point
+Other components are rendered inside App.jsx
+
+StrictMode
+Used during development
+Helps detect errors and repetitive tasks
+Does not affect production build
+
+10. Component File Structure (JSX)
+General structure of a React component:
+// import files/packages
+import React from 'react';
+// function
+function Home() {
+    return (
+        <div>
+            <h1>Home Page</h1>
+        </div>
+    );
+}
+
+// export
+export default Home;
+
+11. Types of Components in React
+1. Functional Components (Most Common)
+Written using functions
+Simple and easy to use
+Uses Hooks
+Boilerplate shortcut: rfc
+
+2. Class Components
+
+Written using ES6 classes
+Uses lifecycle methods
+More complex
+Boilerplate shortcut: rcc
+
+Differences
+Functional Component	Class Component
+Uses functions	Uses classes
+Uses Hooks	Uses lifecycle methods
+Simple and fast	More complex
+
+Most commonly used	Less commonly used
+12. Path Shortcuts
+./ → Exit from a file
+../ → Exit from a folder
+
+13. Import and Export Rule
+Do not mention file extensions while importing
+Example:
+import Home from "./Home";
+✔ Correct
+
+import Home from "./Home.jsx";
+❌ Incorrect
+
+
+15/01/2026
+
+React 2nd class
+
+
+1. Difference between ECMAScript (ES) and JavaScript (JS)
+ECMAScript (ES)
+
+ECMAScript is a standard
+
+It defines rules, syntax, and features for scripting languages
+
+It does not run by itself
+
+Examples:
+
+ES5, ES6 (2015), ES7, ES8…
+
+JavaScript (JS)
+
+JavaScript is a programming language
+
+It follows ECMAScript rules
+
+It can run in browsers and servers (Node.js)
+
+Used to build web applications
+
+Difference Table
+ECMAScript (ES)	JavaScript (JS)
+Specification / Standard	Programming Language
+Defines syntax & rules	Implements ES rules
+Cannot run alone	Runs in browser / server
+Updated as ES versions	Uses ES features
+
+Example:
+ES6 introduced let, const, arrow functions → JavaScript uses them.
+
+2. Parent Tag Rule in React (JSX)
+
+Inside the return() of a React component:
+
+Only one parent element is allowed
+
+All HTML must be wrapped in a single parent tag
+
+Correct Examples
+return (
+  <div>
+    <h1>Hello</h1>
+    <p>Welcome</p>
+  </div>
+);
+
+
+OR using Fragment
+
+return (
+  <>
+    <h1>Hello</h1>
+    <p>Welcome</p>
+  </>
+);
+
+Why this rule?
+
+JSX converts code into JavaScript objects
+
+JavaScript can return only one object
+
+3. Component Naming Rule in React
+
+Component name must start with a capital letter
+
+If written in small letters, React treats it as an HTML tag
+
+Correct
+import Home from "./Home";
+<Home />
+
+Incorrect
+<home />   // React thinks this is an HTML tag
+
+4. Self-Closing Tags in React
+
+Tags without content must be self-closing
+
+Examples
+<img />
+<input />
+<br />
+<hr />
+<Home />
+
+
+❌ <img>
+✔ <img />
+
+5. Importing and Calling Components in App.jsx
+Importing a Component
+import Home from "./Home";
+
+Calling a Component
+function App() {
+  return (
+    <>
+      <Home />
+    </>
+  );
+}
+
+export default App;
+
+Why App.jsx?
+
+App.jsx is the main container
+
+All components are rendered inside App.jsx
+
+6. Importance of index.html
+
+It is the root HTML file
+
+React app loads inside this file
+
+Contains a <div id="root"></div>
+
+Browser first loads index.html
+
+<div id="root"></div>
+
+
+React injects UI inside this div
+
+Mostly unchanged (except for SEO)
+
+7. Importance of main.jsx
+
+main.jsx is the starting point of React
+
+It connects:
+
+index.html
+
+App.jsx
+
+Role of main.jsx
+
+Renders the React application
+
+Uses ReactDOM.createRoot
+
+Wraps App inside StrictMode
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+8. Flow of Execution in React
+Browser
+   ↓
+index.html
+   ↓
+main.jsx
+   ↓
+App.jsx
+   ↓
+Components
+ 
+ES6 features
+Arrow function 
+variables-- let and const
+destructuring -extract from object
+
+
+ 
+16/01/2026
+
+spread operator ...
+for and while loop in react (map concept)
+
+difference between public folder and assets folder
+
+flower bracket is used to print javascript value in react components.
+
+props:
+relationship between child and parent components
+props are case sensitive and it is a javascriptvalue
+difference between props and parameters
