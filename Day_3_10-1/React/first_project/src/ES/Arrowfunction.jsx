@@ -1,9 +1,12 @@
 import React from 'react'
 
+const Test = () => <h1>Hello World  </h1>
+const test = () => <h1>Hello World  </h1>
 export default function Arrowfunction() {
   return (
-    <div>
-      <div>Arrowfunction</div>
-    </div>  
+    <div>Arrowfunction
+    <Test/>
+    {test()}
+    </div>
   )
 }
