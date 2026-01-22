@@ -4,10 +4,10 @@
 
 import React from 'react'
 
-export default function Home({name}) {
+export default function Home() {
   return (
     <div>
-      {name}
+        <h1>Welcome to Home Page</h1>
     </div>
   )
 }

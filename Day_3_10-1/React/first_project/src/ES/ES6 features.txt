@@ -317,3 +317,6 @@ function Student(props) {
 function Student({ name, age }) {
   return <h2>{name} - {age}</h2>;
 }
+
+inside arrowfunction if you just need to display use parentesis
+if you want to write a function then use {flower bracket}

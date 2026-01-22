@@ -1,0 +1,120 @@
+1. Form in React
+What is a Form?
+
+A form is used to collect user input
+
+React uses controlled components
+
+Input value is controlled using state
+
+2. Form Attributes in React
+onChange Attribute
+
+onChange is an event handler
+
+It triggers whenever user types in input field
+
+Used to update state
+
+Syntax
+onChange = { () => setFunction }
+
+Example
+import { useState } from "react";
+
+function Form() {
+  const [name, setName] = useState("");
+
+  return (
+    <input
+      type="text"
+      onChange={(e) => setName(e.target.value)}
+    />
+  );
+}
+
+Important Point
+e.target.value
+
+
+Holds the current value typed by user
+
+e → event object
+
+target → input field
+
+value → typed text
+
+Flow
+User types → onChange triggers → e.target.value → setState
+
+3. Controlled Input Example
+<input
+  type="text"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+/>
+
+
+✔ React controls the input value
+
+4. React Router DOM
+What is React Router DOM?
+
+Used for page navigation in React
+
+Enables SPA routing
+
+No page reload happens
+
+5. Importing Router Components
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+6. Router Structure
+Syntax
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/form" element={<Form />} />
+  </Routes>
+</BrowserRouter>
+
+Explanation
+
+BrowserRouter → Wraps entire app
+
+Routes → Container for routes
+
+Route → Defines path and component
+
+element → Component to render
+
+7. Path Rule in React Router
+
+Each path must be unique
+
+Same path for multiple components ❌
+
+First match only is rendered
+
+✔ Correct
+<Route path="/" element={<Home />} />
+<Route path="/form" element={<Form />} />
+
+8. Complete Example (App.jsx)
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Form from "./Form";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/form" element={<Form />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;

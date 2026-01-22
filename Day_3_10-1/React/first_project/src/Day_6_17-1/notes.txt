@@ -12,6 +12,7 @@ using destructuring
     const{id,title,category,price,img} = item
      return(<Card key={id} title={title} category={category} price={price} img={img}/>)})}
 ------------------------------------------------------
+
 hooks:
 special feature in rfc
 it should only be used in rfc
