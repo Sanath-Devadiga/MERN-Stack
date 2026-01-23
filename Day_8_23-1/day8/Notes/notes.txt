@@ -1,0 +1,11 @@
+MUI--Material UI
+
+Installation--->
+defaul installation 
+with styled installation
+Icons
+____________________________________________
+in MUI tag first letter should be capital
+in mui we use Box instead of div
+MUI-->Typography-used to disolay text
+variant attribute should be used to define tags--dont give variant it will be acted like p tag
